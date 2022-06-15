@@ -1,0 +1,38 @@
+content:
+- Introduction to Kotlin
+- Overview of the basic program
+- Data types
+- Standard output
+- Reading data with a readLine
+- String templates
+- Integers in action
+- Relational operators
+- If expression
+- Repeating blocks
+- Equality
+- Characters
+- Ranges
+- For loop and ranges
+- Introduction to MutableList
+- Work with MutableLists
+- For loop and lists
+- Multi-dimensional list
+- Comments
+- Random
+- Declaring functions
+- Declaring classes
+- When expression
+- Functional decomposition
+- Default arguments
+- Named arguments
+- Constructors
+- Member functions
+- Extension functions
+- Properties accessors
+- Secondary constructor
+- Scopes
+- Nested and inner classes
+- Type conversion
+- Object declarations
+- Companion object
+- Enum
