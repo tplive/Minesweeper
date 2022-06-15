@@ -8,27 +8,22 @@ const val MINE = "💣"
 const val EMPTY = "."
 const val MARKED = "*"
 
-private fun insertDigitGrouping(input: String): String {
-    var counter = 0
-    var output = ""
-    for (character in input.reversed()) {
-        counter++
-        output += character
-        if (counter % 3 == 0) {
-            output += " "
-        }
-    }
-    return output.reversed()
-}
-
 fun main() {
 
-    //print("How many mines do you want on the field? ")
-    val mines = 9 // readLine()!!.toInt()
-    val characters = readLine()!!
+    print("How many mines do you want on the field? ")
+    val mines = readLine()!!.toInt()
 
-    println(insertDigitGrouping(characters))
+    val grid = generateGrid()
 
+    val listWithMines = placeMines(grid, mines)
+    val calculateMines = calculateMinesNearby(listWithMines)
+
+    for (l in calculateMines)
+        println(l.joinToString(""))
+
+}
+
+fun generateGrid(): MutableList<MutableList<String>> {
     val list = mutableListOf<MutableList<String>>()
     repeat(FIELD) {
         val row = mutableListOf<String>()
@@ -37,13 +32,7 @@ fun main() {
         }
         list.add(row)
     }
-
-    val listWithMines = placeMines(list, mines)
-    val calculateMines = calculateMinesNearby(listWithMines)
-
-    for (l in calculateMines)
-        println(l.joinToString(""))
-
+    return list
 }
 
 fun placeMines(list: MutableList<MutableList<String>>, mines: Int): MutableList<MutableList<String>> {
@@ -61,8 +50,8 @@ fun placeMines(list: MutableList<MutableList<String>>, mines: Int): MutableList<
 }
 
 fun calculateMinesNearby(list: MutableList<MutableList<String>>): MutableList<MutableList<String>> {
-    var x = 0
-    var y = 0
+    var x: Int
+    var y: Int = 0
     var mines = 0
 
     while (y < FIELD) {
