@@ -4,7 +4,7 @@ import java.lang.System.currentTimeMillis
 import kotlin.random.Random
 
 const val FIELD = 9 // The side of the square
-const val MINE = "💣"
+const val MINE = "X"
 const val EMPTY = "."
 const val MARKED = "*"
 
@@ -68,10 +68,10 @@ fun calculateMinesNearby(list: MutableList<MutableList<String>>): MutableList<Mu
                 if (x > 0 && y > 0 && isMine(list[x-1][y-1])) mines++ // up left
 
                 if (mines > 0) {
-                    list[x][y] = emojify(mines.toString())
+                    list[x][y] = mines.toString()
                     mines = 0
                 } else {
-                    list[x][y] = emojify(".")
+                    list[x][y] = EMPTY
                 }
             }
             x++
